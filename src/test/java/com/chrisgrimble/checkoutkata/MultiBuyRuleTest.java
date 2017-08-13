@@ -52,6 +52,13 @@ public class MultiBuyRuleTest {
     }
 
     @Test
+    public void singleDiscountIfMoreThanEnoughItems() {
+        final Amount discount = multiBuyRule.calculateDiscount(asList(skuA, skuA, skuA, skuA));
+
+        assertThat(discount, is(new Amount(20)));
+    }
+
+    @Test
     public void multipleDiscountsIfEnoughItems() {
         final Amount discount = multiBuyRule.calculateDiscount(asList(skuA, skuA, skuA, skuA, skuA, skuA));
 
